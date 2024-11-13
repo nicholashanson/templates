@@ -1,9 +1,12 @@
 template<typename T, typename U>
 class PointsCounter {
 public:
+    PointsCounter(const T& t_) { t = t_; }
     PointsCounter& operator=(const PointsCounter& rhs)
     { this.t = rhs.t; return *this; }
-    T get_t() { return t; };
+    PointsCounter& operator=(const T& t_)
+    { t = t_; }
+    operator T() { return t; }
     void set_t(T t_) { t = t_; };
     void set_counter(const std::function<T(U)>& _c)
     { counter = _c; }
